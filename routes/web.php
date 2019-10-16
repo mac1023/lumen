@@ -14,3 +14,21 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('foo', function () {
+    return 'Hello World';
+});
+
+
+//$router->get('users', [
+//    'as' => 'users', 'uses' => 'UsersController@show'
+//]);
+
+//$router->get('users.show','Uer');
+
+
+//$api = app('Dingo\Api\Routing\Router');
+//
+//$api->version('v1', function ($api) {
+//    $api->get('users/{id}', 'App\Api\Controllers\UserController@show');
+//});
