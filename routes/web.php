@@ -56,6 +56,10 @@ $api->version('v1', ['namespace'=>'App\Http\Controllers'],function($api) {
 
     //短信
     $api->post('verificationCodes', ['as' => 'api.verificationCodes.store', 'uses' => 'VerificationCodesController@store']);
+
+    // 用户注册
+    $api->post('users', ['as'=>'api.users.store', 'uses'=>'UsersController@store']);
+
 });
 
 
