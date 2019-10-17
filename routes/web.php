@@ -15,9 +15,31 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('foo', function () {
+
+$router->get('foo', ['as' => 'foo',function () {
     return 'Hello World';
+}]);
+
+
+$router->post('foo', function () {
+    return 'i am post';
 });
+
+$router->get('user/{id}', function ($id) {
+    return 'User '.$id;
+});
+
+//$router->get('profile', ['as' => 'profile', function () {
+//    return 'i am rename';
+//}]);
+
+$router->get('profile', [
+    'as' => 'profile', 'uses' => 'UsersController@showProfile'
+]);
+
+
+$router->get('user/{id}/show', ['as' => 'show', 'uses'=>'UsersController@show']);
+
 
 
 //$router->get('users', [
