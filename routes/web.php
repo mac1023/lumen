@@ -38,19 +38,23 @@ $router->get('/', function () use ($router) {
 
 $api = app('Dingo\Api\Routing\Router');
 
-
-
-$api->version('v1', function($api) {
-    $api->get('version', function() {
-        return response('this is version v1');
-    });
-});
-
 $api->version('v2', function($api) {
     $api->get('version', function() {
         return response('this is version v2');
     });
 });
+
+
+$api->version('v1', ['namespace'=>'App\Http\Controllers'],function($api) {
+    $api->get('version', function() {
+        return response('this is version v1');
+    });
+
+//    $api->get('users/{id}', 'UsersController@show');
+    $api->get('users', ['as' => 'users.index', 'uses' => 'UsersController@index']);
+    $api->get('users/{id}', ['as' => 'users.show', 'uses' => 'UsersController@show']);
+});
+
 
 
 

@@ -8,18 +8,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Transformers\UserTransformer;
+
 class UsersController extends  Controller
 {
-    public function showProfile()
+    public function index()
     {
-        echo 222;
-
-        return redirect()->route('show', ['id'=>1]);
+       return User::all();
     }
 
     public function show($id)
     {
-        echo 'i am show! id='.$id;
+        $user =  User::find($id);
+        return $this->response->item($user, new UserTransformer());
     }
 
 }

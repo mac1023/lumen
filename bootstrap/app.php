@@ -25,7 +25,7 @@ $app = new Laravel\Lumen\Application(
 
 // $app->withFacades();
 
-// $app->withEloquent();
+ $app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------
@@ -84,7 +84,6 @@ $app->singleton(
 
 
 $app->register(Dingo\Api\Provider\LumenServiceProvider::class);
-
 
 /*
 |--------------------------------------------------------------------------
