@@ -78,13 +78,14 @@ $app->singleton(
 |
 */
 
-// $app->register(App\Providers\AppServiceProvider::class);
-// $app->register(App\Providers\AuthServiceProvider::class);
+ $app->register(App\Providers\AppServiceProvider::class);
+ $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
 $app->register(\Illuminate\Redis\RedisServiceProvider::class);
 $app->register(Dingo\Api\Provider\LumenServiceProvider::class);
-
+// 新增JWT的注册
+$app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 
 $app->configure('easysms');
 $app->register(App\Providers\EasySmsServiceProvider::class);
