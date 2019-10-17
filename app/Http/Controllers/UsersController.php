@@ -20,8 +20,12 @@ class UsersController extends  Controller
 
     public function show($id)
     {
-        $user =  User::find($id);
-        return $this->response->item($user, new UserTransformer());
+
+
+        var_dump(config('easysms'));
+
+//        $user =  User::find($id);
+//        return $this->response->item($user, new UserTransformer());
     }
 
 }

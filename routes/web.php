@@ -53,6 +53,9 @@ $api->version('v1', ['namespace'=>'App\Http\Controllers'],function($api) {
 //    $api->get('users/{id}', 'UsersController@show');
     $api->get('users', ['as' => 'users.index', 'uses' => 'UsersController@index']);
     $api->get('users/{id}', ['as' => 'users.show', 'uses' => 'UsersController@show']);
+
+    //短信
+    $api->post('verificationCodes', ['as' => 'api.verificationCodes.store', 'uses' => 'VerificationCodesController@store']);
 });
 
 
