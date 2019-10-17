@@ -83,7 +83,7 @@ $app->singleton(
 // $app->register(App\Providers\EventServiceProvider::class);
 
 
-//$app->register(Dingo\Api\Provider\LumenServiceProvider::class);
+$app->register(Dingo\Api\Provider\LumenServiceProvider::class);
 
 
 /*

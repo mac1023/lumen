@@ -16,41 +16,41 @@ $router->get('/', function () use ($router) {
 });
 
 
-$router->get('foo', ['as' => 'foo',function () {
-    return 'Hello World';
-}]);
-
-
-$router->post('foo', function () {
-    return 'i am post';
-});
-
-$router->get('user/{id}', function ($id) {
-    return 'User '.$id;
-});
-
-//$router->get('profile', ['as' => 'profile', function () {
-//    return 'i am rename';
+//$router->get('foo', ['as' => 'foo',function () {
+//    return 'Hello World';
 //}]);
 
-$router->get('profile', [
-    'as' => 'profile', 'uses' => 'UsersController@showProfile'
-]);
 
+//$router->post('foo', function () {
+//    return 'i am post';
+//});
 
-$router->get('user/{id}/show', ['as' => 'show', 'uses'=>'UsersController@show']);
+//$router->get('user/{id}', function ($id) {
+//    return 'User '.$id;
+//});
+//$router->get('user/{id}/show', ['as' => 'show', 'uses'=>'UsersController@show']);
 
-
-
-//$router->get('users', [
-//    'as' => 'users', 'uses' => 'UsersController@show'
+//$router->get('profile', [
+//    'as' => 'profile', 'uses' => 'UsersController@showProfile'
 //]);
 
-//$router->get('users.show','Uer');
 
 
-//$api = app('Dingo\Api\Routing\Router');
-//
-//$api->version('v1', function ($api) {
-//    $api->get('users/{id}', 'App\Api\Controllers\UserController@show');
-//});
+$api = app('Dingo\Api\Routing\Router');
+
+
+
+$api->version('v1', function($api) {
+    $api->get('version', function() {
+        return response('this is version v1');
+    });
+});
+
+$api->version('v2', function($api) {
+    $api->get('version', function() {
+        return response('this is version v2');
+    });
+});
+
+
+
